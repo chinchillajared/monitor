@@ -11,12 +11,14 @@ socket.onopen = function (event) {
 
 socket.onmessage = function (event) {
     console.log('Received from server: ' + event.data);
+    document.getElementById('messages').innerText = ''; // clear the messages
     document.getElementById('messages').innerText += 'Received from server: ' + event.data + '\n';
 };
 
 
 socket.onclose = function (event) {
     console.log('WebSocket is closed now.');
+    document.getElementById('messages').innerText = ''; // clear the messages
     document.getElementById('status').innerText += ' Not connected.';
 };
 
