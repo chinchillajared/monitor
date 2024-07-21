@@ -4,6 +4,7 @@ socket = new WebSocket('ws://192.168.1.111:8765');
 
 socket.onopen = function (event) {
     console.log('WebSocket is open now.');
+    document.getElementById('messages').innerText = ''; // clear the messages
     document.getElementById('status').innerText += 'connected';
 };
 
@@ -11,7 +12,6 @@ socket.onopen = function (event) {
 
 socket.onmessage = function (event) {
     console.log('Received from server: ' + event.data);
-    document.getElementById('messages').innerText = ''; // clear the messages
     document.getElementById('messages').innerText += 'Received from server: ' + event.data + '\n';
 };
 
