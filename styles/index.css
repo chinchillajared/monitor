@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+
+/* 
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-black {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}*/
+
+
 .con-status {
     display: grid;
     grid-template-columns: auto;
@@ -12,23 +28,7 @@
     border-radius: 5px;
     background-color: #f0f0f0;
     text-align: center;
-}
-
-.con-status div span {
-    animation: blink 3s infinite;
-
-}
-
-@keyframes blink {
-    0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }

@@ -7,20 +7,24 @@ socket.onopen = function (event) {
     document.getElementById('status').innerText += 'connected';
 };
 
+
+
 socket.onmessage = function (event) {
     console.log('Received from server: ' + event.data);
     document.getElementById('messages').innerText += 'Received from server: ' + event.data + '\n';
 };
 
+
 socket.onclose = function (event) {
     console.log('WebSocket is closed now.');
-    document.getElementById('messages').innerText += 'WebSocket is closed now.\n';
+    document.getElementById('status').innerText += ' Not connected.';
 };
+
 
 socket.onerror = function (error) {
     console.log('WebSocket Error: ' + error);
-    document.getElementById('status').innerText += 'Not connected';
 };
+
 
 
 document.getElementById('sendMessage').onclick = function () {
