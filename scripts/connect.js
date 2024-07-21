@@ -4,7 +4,7 @@ socket = new WebSocket('ws://192.168.1.111:8765');
 
 socket.onopen = function (event) {
     console.log('WebSocket is open now.');
-    document.getElementById('messages').innerText = ''; // clear the messages
+    document.getElementById('status').innerText = ''; // clear the messages
     document.getElementById('status').innerText += 'connected';
 };
 
@@ -18,7 +18,7 @@ socket.onmessage = function (event) {
 
 socket.onclose = function (event) {
     console.log('WebSocket is closed now.');
-    document.getElementById('messages').innerText = ''; // clear the messages
+    document.getElementById('status').innerText = ''; // clear the messages
     document.getElementById('status').innerText += ' Not connected.';
 };
 
