@@ -1,35 +1,30 @@
 let socket;
 
-socket = new WebSocket('ws://192.168.1.111:8765');
+// Connect to the WebSocket server
+socket = new WebSocket('ws://192.168.1.104:8765');
 
+//Once the connection is open, confirm the status on the page
 socket.onopen = function (event) {
     console.log('WebSocket is open now.');
     document.getElementById('status').innerText = ''; // clear the messages
-    document.getElementById('status').innerText += 'connected';
+    document.getElementById('status').innerText += 'Connected.';
+    document.getElementById('simbol').innerText = '🟢';
 };
 
-
-
-socket.onmessage = function (event) {
-    console.log('Received from server: ' + event.data);
-    document.getElementById('messages').innerText += 'Received from server: ' + event.data + '\n';
-};
-
-
+//Once the connection is closed, confirm the status on the page
 socket.onclose = function (event) {
     console.log('WebSocket is closed now.');
     document.getElementById('status').innerText = ''; // clear the messages
-    document.getElementById('status').innerText += ' Not connected.';
+    document.getElementById('status').innerText += 'Dissconected.';
+    document.getElementById('simbol').innerText = '🔴';
 };
 
-
+//If there is an error, log it to the console
 socket.onerror = function (error) {
     console.log('WebSocket Error: ' + error);
 };
 
-
-
-document.getElementById('sendMessage').onclick = function () {
-    const message = document.getElementById('message').value;
-    socket.send(message);
+// Log messages from the server
+socket.onmessage = function (event) {
+    console.log('Message from server ', event.data);
 };

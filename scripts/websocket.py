@@ -1,17 +1,29 @@
+#import dependencies
 import asyncio
 import websockets
+import json
 
+
+#We will use this function to send and receive messages from the clients.
 async def echo(websocket, path):
-    async for message in websocket:
-        print(f"Received message: {message}")
-        response = f"Server received: {message}"
-        await websocket.send(response)
 
+    #Receive the message from the client and reply with a confirmation message.
+    async for message in websocket:
+        print('Message received: ', message)
+        print('Processing message...')
+        # data = json.loads(message)
+        # if data.get('type') == 'temperature':
+        #     temperature = data.get('value')
+
+#Start the WebSocket server on the local IP address and port 8765.
 start_server = websockets.serve(echo, "", 8765)
 
 asyncio.get_event_loop().run_until_complete(start_server)
-print("WebSocket server started on ws://192.168.1.111:8765")
+print("WebSocket server started on ws://192.168.1.104:8765")
+
+#This will keep the server running indefinitely.
 asyncio.get_event_loop().run_forever()
+
 
 
 
