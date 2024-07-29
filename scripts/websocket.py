@@ -13,6 +13,10 @@ async def echo(websocket, path):
     async for message in websocket:
         print('Message received: ', message)
         print('Processing message...')
+        
+        # Send the response back to the client
+        response = 'Message received: ' + message + '\nProcessing message...'
+        await websocket.send(response)
         # data = json.loads(message)
         # if data.get('type') == 'temperature':
         #     temperature = data.get('value')

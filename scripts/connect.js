@@ -3,6 +3,8 @@ let socket;
 // Connect to the WebSocket server
 socket = new WebSocket('https://websocket.chinchillajared.works/');
 
+document.getElementById('sendMessage').addEventListener('click', sendData);
+
 //Once the connection is open, confirm the status on the page
 socket.onopen = function (event) {
     console.log('WebSocket is open now.');
@@ -26,5 +28,15 @@ socket.onerror = function (error) {
 
 // Log messages from the server
 socket.onmessage = function (event) {
-    console.log('Message from server ', event.data);
+    console.log('Message from server: ', event.data);
 };
+
+// Send a message to the server
+function sendData() {
+    var userInput = document.getElementById("userInput").value;
+
+    message = JSON.stringify({ userInput: userInput })
+
+    console.log('Sending message to server: ', message);
+
+}
