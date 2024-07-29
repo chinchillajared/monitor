@@ -1,7 +1,7 @@
 let socket;
 
 // Connect to the WebSocket server
-socket = new WebSocket('ws://192.168.1.104:8765');
+socket = new WebSocket('https://websocket.chinchillajared.works/');
 
 //Once the connection is open, confirm the status on the page
 socket.onopen = function (event) {

@@ -21,7 +21,7 @@ async def echo(websocket, path):
 start_server = websockets.serve(echo, "", 8765)
 
 asyncio.get_event_loop().run_until_complete(start_server)
-print("WebSocket server started on ws://192.168.1.104:8765")
+print("WebSocket server started on ws://192.168.1.111:8765")
 
 #This will keep the server running indefinitely.
 asyncio.get_event_loop().run_forever()
